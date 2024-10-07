@@ -39,4 +39,4 @@ certificates
 /database/postgres_data
 /database/pgadmin_data
 
-.DS_Store
+.DS_Store.env
