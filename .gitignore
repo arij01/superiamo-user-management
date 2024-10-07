@@ -36,3 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 certificates
+/database/postgres_data
+/database/pgadmin_data
+
+.DS_Store
