@@ -3,7 +3,7 @@ import { SignInPage } from "./signin"
 
 const SignIn: React.FC = () => {
     //const SignedIn = await checkIsSignedIn();
-    const SignedIn = true;
+    const SignedIn = false;
     if (SignedIn){
         redirect('/dashboard');
     }
