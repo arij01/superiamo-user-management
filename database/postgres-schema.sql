@@ -5,7 +5,11 @@ CREATE TABLE
   users (
     id uuid NOT NULL DEFAULT uuid_generate_v4(),
     name VARCHAR(255),
+    surname VARCHAR(255),
     email VARCHAR(255),
+    dob DATE,
+    addresse VARCHAR(255),
+    phone VARCHAR(15),
     "emailVerified" TIMESTAMPTZ,
     image TEXT,
     role AuthRole NOT NULL DEFAULT 'USER',
