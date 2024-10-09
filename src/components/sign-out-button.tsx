@@ -12,7 +12,7 @@ export const SignOutButton = (props: {
     <button
       className={props.className}
       style={{ cursor: "pointer" }}
-      onClick={() => handleSignOut}
+      onClick={() => handleSignOut()}
     >
       {props.children || "Sign Out"}
     </button>

@@ -2,9 +2,9 @@ import { redirect } from "next/navigation";
 import { SignInPage } from "./signin"
 
 const SignIn: React.FC = () => {
-    //const SignedIn = await checkIsSignedIn();
-    const SignedIn = false;
-    if (SignedIn){
+    //const isSignedIn = await checkIsSignedIn();
+    const isSignedIn = false;
+    if (isSignedIn){
         redirect('/dashboard');
     }
     else{
