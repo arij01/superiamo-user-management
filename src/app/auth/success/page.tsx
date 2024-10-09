@@ -7,7 +7,7 @@ const AuthSuccessPage: React.FC = () => {
         <div className="auth-success">
           <RxCheckCircled className="icon" />
 
-          <p>{"Success! Please check your email inbox for sign in link."}</p>
+          <p>{"Success! The magic link was sent to Mailtrap."}</p>
         </div>
         <div>
           <p>
