@@ -21,7 +21,7 @@ Ce projet est une application de gestion des utilisateurs qui permet de :
 ## Technologies utilisées
 
 - **Next.js** : Framework utilisé pour le développement front-end et back-end.
-- **PostgreSQL** : Base de données relationnelle utilisée pour stocker les informations des utilisateurs et les données d'authentification.
+- **PostgreSQL avec Supabase** : Base de données relationnelle utilisée pour stocker les informations des utilisateurs et les données d'authentification, facilitée par Supabase.
 - **NextAuth.js** : Librairie utilisée pour gérer l'authentification OAuth2, incluant les liens magiques et la liaison des comptes Google.
 - **Mailtrap** : Outil utilisé pour tester les emails dans un environnement de développement.
 - **TypeScript** : Langage de programmation utilisé pour la gestion des types et une meilleure maintenabilité du code.
