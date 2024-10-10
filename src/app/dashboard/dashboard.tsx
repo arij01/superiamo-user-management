@@ -21,7 +21,7 @@ export const DashboardPage: React.FC = () => {
         role: "",
     });
     //const [role, setRole] = useState("");
-    const { update } = useSession();
+    //const { update } = useSession();
 
     useEffect(() => {
         const fetchUserInfo = async () => {
