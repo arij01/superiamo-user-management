@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { updateUserInfo } from "@/src/lib/auth/updateServerAction"; // Adjust the import path as needed
+import { updateUserInfo } from "@/src/lib/auth/updateServerAction"; 
 
 const UpdateUserInfo: React.FC = () => {
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
     const [dob, setDob] = useState("");
-    const [address, setAddress] = useState("");
+    const [addresse, setAddresse] = useState("");
     const [phone, setPhone] = useState("");
 
     const handleSubmit = async (event: React.FormEvent) => {
@@ -17,7 +17,7 @@ const UpdateUserInfo: React.FC = () => {
             name,
             surname,
             dob,
-            address,
+            addresse,
             phone,
         };
 
@@ -64,9 +64,9 @@ const UpdateUserInfo: React.FC = () => {
                 <div className="field-input-container">
                     <input
                         type="text"
-                        placeholder="Address"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
+                        placeholder="Addresse"
+                        value={addresse}
+                        onChange={(e) => setAddresse(e.target.value)}
                         className="field-input"
                     />
                 </div>
