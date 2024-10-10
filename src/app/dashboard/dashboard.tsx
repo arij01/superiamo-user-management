@@ -16,7 +16,7 @@ export const DashboardPage: React.FC = () => {
         name: "",
         surname: "",
         dob: "",
-        address: "",
+        addresse: "",
         phone: "",
         role: "",
     });
@@ -64,7 +64,7 @@ export const DashboardPage: React.FC = () => {
                 <div className="name">{userInfo.name}</div>
                 <div className="name">{userInfo.surname}</div>
                 <div className="name">{formatDate(userInfo.dob)}</div>
-                <div className="name">{userInfo.address}</div>
+                <div className="name">{userInfo.addresse}</div>
                 <div className="name">{userInfo.phone}</div>
 
                 <div>
