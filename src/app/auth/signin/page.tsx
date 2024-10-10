@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { SignInPage } from "./signin"
+import { SignInPage } from "@/src/app/auth/signin/signin"
 import { checkIsSignedIn } from "@/src/lib/auth/checkIsSignedIn";
 
 const SignIn: React.FC = async () => {
