@@ -4,10 +4,10 @@ import { auth } from "@/src/lib/auth/authConfig";
 import { pool } from "@/src/lib/postgres";
 
 export const setName = async (name: string) => {
-  // Check if the user is authenticated
+  
   const session = await auth();
   if (!session) {
-    throw new Error("Unauthorized");
+    throw new Error("Non autorisé");
   }
 
   const uuid: string = session.user.id;
@@ -16,7 +16,7 @@ export const setName = async (name: string) => {
   const uuidRegExp: RegExp =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
   if (typeof uuid !== "string" || !uuidRegExp.test(uuid)) {
-    throw new Error("Invalid UUID");
+    throw new Error("UUID invalide");
   }
   name = name.trim();
 

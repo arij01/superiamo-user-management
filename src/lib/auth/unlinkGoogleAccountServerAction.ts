@@ -5,10 +5,10 @@ import { pool } from "@/src/lib/postgres";
 
 // Deletes the user's Google account record from the database
 export const unlinkGoogleAccount = async () => {
-  // Check if the user is authenticated
+  
   const session = await auth();
   if (!session) {
-    throw new Error("Unauthorized");
+    throw new Error("Non autorisé");
   }
 
   const uuid: string = session.user.id;
@@ -17,7 +17,7 @@ export const unlinkGoogleAccount = async () => {
   const uuidRegExp: RegExp =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
   if (typeof uuid !== "string" || !uuidRegExp.test(uuid)) {
-    throw new Error("Invalid UUID");
+    throw new Error("UUID invalide");
   }
 
   // Remove the Google account from the database
@@ -28,6 +28,6 @@ export const unlinkGoogleAccount = async () => {
     );
     return true;
   } catch (error) {
-    console.error("Failed to unlink Google account:", error);
+    console.error("Échec de la dissociation du compte Google:", error);
   }
 };

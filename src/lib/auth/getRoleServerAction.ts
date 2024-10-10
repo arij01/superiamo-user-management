@@ -13,7 +13,7 @@ export const getUserRole = async () => {
     const uuidRegExp: RegExp =
       /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
     if (typeof uuid !== "string" || !uuidRegExp.test(uuid)) {
-      throw new Error("Invalid UUID");
+      throw new Error("UUID invalide");
     }
 
     const { rows } = await pool.query("SELECT role FROM users WHERE id = $1", [

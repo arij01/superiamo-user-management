@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { DashboardPage } from "./dashboard";
+import { DashboardPage } from "@/src/app/dashboard/dashboard";
 import { checkIsSignedIn } from "@/src/lib/auth/checkIsSignedIn";
 
 const Dashboard: React.FC = async () => {

@@ -4,7 +4,7 @@ import { pool } from "@/src/lib/postgres";
 import Google from "next-auth/providers/google";
 import Nodemailer from "next-auth/providers/nodemailer";
 import { clearStaleTokens } from "@/src/lib/auth/clearStaleTokensServerAction";
-import { setName } from "./setNameServerAction";
+import { setName } from "@/src/lib/auth/setNameServerAction";
 
 export const {handlers,signIn,signOut,auth} = NextAuth({
     trustHost: true,
@@ -46,7 +46,7 @@ export const {handlers,signIn,signOut,auth} = NextAuth({
               try {
                 await setName(token.name);
               } catch (error) {
-                console.error("Failed to set user name:", error);
+                console.error("Échec de la définition du nom d'utilisateur ", error);
               }
             }
       

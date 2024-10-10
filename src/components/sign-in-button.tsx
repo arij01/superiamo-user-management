@@ -16,7 +16,7 @@ export const SignInButton = (props: {
         router.push("/auth/signin");
       }}
     >
-      {props.children || "Sign In"}
+      {props.children || "Se connecter"}
     </button>
   );
 };

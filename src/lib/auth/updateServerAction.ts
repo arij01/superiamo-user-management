@@ -35,7 +35,7 @@ export const updateUserInfo = async (userInfo: {
   
   const session = await auth();
   if (!session) {
-    throw new Error("Unauthorized");
+    throw new Error("Non autorisé");
   }
 
   const uuid: string = session.user.id;
@@ -44,7 +44,7 @@ export const updateUserInfo = async (userInfo: {
   const uuidRegExp: RegExp =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
   if (!uuidRegExp.test(uuid)) {
-    throw new Error("Invalid UUID");
+    throw new Error("UUID invalide");
   }
 
   // Sanitize inputs
@@ -60,13 +60,13 @@ export const updateUserInfo = async (userInfo: {
 
   // Input validation
   if (!sanitizedData.name || !sanitizedData.surname || !sanitizedData.dob || !sanitizedData.addresse || !sanitizedData.phone) {
-    throw new Error("All fields must be filled");
+    throw new Error("Tous les champs doivent être remplis");
   }
 
   // phone number validation for France
   const phoneRegExp: RegExp = /^(?:0[1-9]|(\+33)[1-9])[0-9]{8}$/; 
   if (!phoneRegExp.test(sanitizedData.phone)) {
-    throw new Error("Invalid phone number format");
+    throw new Error("Format de numéro de téléphone invalide");
   }
   const userCoordinates = await getGeolocationFromAddress(userInfo.addresse);
 
@@ -83,7 +83,7 @@ export const updateUserInfo = async (userInfo: {
 
   // Address validation (within 50km from Paris)
   if (distance > 50) {
-    throw new Error("Address must be within 50 km of Paris");
+    throw new Error("L'adresse doit se trouver à moins de 50 km de Paris");
   }
   // Update user iquery
   const query = `
@@ -106,6 +106,6 @@ export const updateUserInfo = async (userInfo: {
     return true;
   } catch (error) {
     console.error("Database error:", error);
-    throw new Error("Failed to update user information");
+    throw new Error("Échec de la mise à jour des informations de l'utilisateur");
   }
 };

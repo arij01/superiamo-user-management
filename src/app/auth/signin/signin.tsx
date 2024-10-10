@@ -28,7 +28,7 @@ export const SignInPage: React.FC = () => {
               className="form-input"
               type="email"
               maxLength={320}
-              placeholder="Email Address"
+              placeholder="Addresse Email"
               onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
                 setFormData({ email: event.target.value })
               }
@@ -36,7 +36,7 @@ export const SignInPage: React.FC = () => {
               required
             />
             <button className="submit-button" type="submit">
-              Sign in with email
+            Se connecter avec un e-mail
             </button>
           </form>
 
@@ -48,7 +48,7 @@ export const SignInPage: React.FC = () => {
               <div className="social-logins">
               <button className="google" onClick={()=>handleGoogleSignIn()}>
                 <FcGoogle className="google-icon"/>
-                Sign in with Google
+                Se connecter avec Google
               </button>
               </div>  
             </div>

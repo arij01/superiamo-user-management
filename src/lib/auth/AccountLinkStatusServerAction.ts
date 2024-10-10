@@ -16,7 +16,7 @@ export const getAccountLinkStatus = async () => {
   const uuidRegExp: RegExp =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
   if (typeof uuid !== "string" || !uuidRegExp.test(uuid)) {
-    throw new Error("Invalid UUID");
+    throw new Error("UUID invalide");
   }
 
   
@@ -30,7 +30,7 @@ export const getAccountLinkStatus = async () => {
       return false;
     }
   } catch (error) {
-    console.error("Failed to check if user has Google account linked:", error);
+    console.error("Échec de la vérification de la liaison du compte Google de l'utilisateur :", error);
   }
 
   return true;

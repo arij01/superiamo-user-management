@@ -2,8 +2,8 @@
 
 import { SignOutButton } from "@/src/components/sign-out-button";
 import { getAccountLinkStatus } from "@/src/lib/auth/AccountLinkStatusServerAction";
-import { getUserRole } from "@/src/lib/auth/getRoleServerAction";
-import { getUserName } from "@/src/lib/auth/getUserNameServer";
+//import { getUserRole } from "@/src/lib/auth/getRoleServerAction";
+//import { getUserName } from "@/src/lib/auth/getUserNameServer";
 import { handleGoogleSignIn } from "@/src/lib/auth/googleSignInServerAction";
 import { unlinkGoogleAccount } from "@/src/lib/auth/unlinkGoogleAccountServerAction";
 import { useSession } from "next-auth/react";
@@ -54,12 +54,12 @@ export const DashboardPage: React.FC = () => {
         <div className="dashboard-page">
             <h2>Dashboard</h2>
             <div className="dashboard-card">
-                <a href="/admin">Go to Admin Page</a>
+                <a href="/admin">Page Admin</a>
                 
-                <a href="/update">Update Information</a> 
+                <a href="/update">Modifier vos Information</a> 
                
                 <div>
-                    <p>Role: {userInfo.role}</p>
+                    <p>Rôle: {userInfo.role}</p>
                 </div>
                 <div className="name">{userInfo.name}</div>
                 <div className="name">{userInfo.surname}</div>
@@ -85,8 +85,8 @@ export const DashboardPage: React.FC = () => {
                         }
                     >
                         {isAccountLinked
-                            ? "Disconnect Google Account"
-                            : "Connect Google Account"}
+                            ? "Déconnecter votre compte Google"
+                            : "Connecter votre compte Google"}
                     </button>
                 </div>
                 
