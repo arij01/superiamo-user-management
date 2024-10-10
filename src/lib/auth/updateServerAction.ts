@@ -2,6 +2,27 @@
 
 import { auth } from "@/src/lib/auth/authConfig";
 import { pool } from "@/src/lib/postgres";
+import { getGeolocationFromAddress } from "@/src/lib/geolocation/getGeolocationFromAddress";
+// Utility function to calculate the distance between two coordinates using the Haversine formula
+function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371; // Radius of the Earth in kilometers
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+
+  const a = 
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * 
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  
+  return R * c; // Distance in kilometers
+}
+
+// Helper function to convert degrees to radians
+function toRadians(degrees: number): number {
+  return degrees * (Math.PI / 180);
+}
 
 
 export const updateUserInfo = async (userInfo: { 
@@ -47,7 +68,23 @@ export const updateUserInfo = async (userInfo: {
   if (!phoneRegExp.test(sanitizedData.phone)) {
     throw new Error("Invalid phone number format");
   }
+  const userCoordinates = await getGeolocationFromAddress(userInfo.addresse);
 
+  // Paris coordinates
+  const parisCoordinates = { latitude: 48.8566, longitude: 2.3522 };
+
+  // Calculate the distance
+  const distance = calculateDistance(
+    parisCoordinates.latitude,
+    parisCoordinates.longitude,
+    userCoordinates.latitude,
+    userCoordinates.longitude
+  );
+
+  // Address validation (within 50km from Paris)
+  if (distance > 50) {
+    throw new Error("Address must be within 50 km of Paris");
+  }
   // Update user iquery
   const query = `
     UPDATE users 

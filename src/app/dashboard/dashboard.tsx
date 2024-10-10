@@ -8,7 +8,7 @@ import { handleGoogleSignIn } from "@/src/lib/auth/googleSignInServerAction";
 import { unlinkGoogleAccount } from "@/src/lib/auth/unlinkGoogleAccountServerAction";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { getUserInfo } from "@/src/lib/auth/getUserInfoServerAction"; // Import the user info fetching function
+import { getUserInfo } from "@/src/lib/auth/getUserInfoServerAction"; 
 
 export const DashboardPage: React.FC = () => {
     const [isAccountLinked, setIsAccountLinked] = useState(false);
@@ -18,14 +18,15 @@ export const DashboardPage: React.FC = () => {
         dob: "",
         address: "",
         phone: "",
+        role: "",
     });
-    const [role, setRole] = useState("");
+    //const [role, setRole] = useState("");
     const { update } = useSession();
 
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
-                const info = await getUserInfo(); // Fetch user info
+                const info = await getUserInfo(); 
                 setUserInfo(info);
             } catch (error) {
                 console.error("Failed to fetch user info:", error);
@@ -41,7 +42,7 @@ export const DashboardPage: React.FC = () => {
             }
         };
 
-        fetchUserInfo(); // Call user info fetching
+        fetchUserInfo(); 
         accountLinkStatus();
     }, []);
     const formatDate = (dateString: string) => {
@@ -54,8 +55,11 @@ export const DashboardPage: React.FC = () => {
             <h2>Dashboard</h2>
             <div className="dashboard-card">
                 <a href="/admin">Go to Admin Page</a>
+                
+                <a href="/update">Update Information</a> 
+               
                 <div>
-                    <p>Role: {role}</p>
+                    <p>Role: {userInfo.role}</p>
                 </div>
                 <div className="name">{userInfo.name}</div>
                 <div className="name">{userInfo.surname}</div>
@@ -85,12 +89,11 @@ export const DashboardPage: React.FC = () => {
                             : "Connect Google Account"}
                     </button>
                 </div>
+                
                 <div>
                     <SignOutButton className="signout-button" />
                 </div>
-                <div>
-                    <a href="/update">Update Information</a> {/* Link to update page */}
-                </div>
+               
             </div>
         </div>
     );

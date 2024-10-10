@@ -32,13 +32,13 @@ const UpdateUserInfo: React.FC = () => {
 
     return (
         <div className="dashboard-page">
-        <div className="dashboard-card"> {/* Reuse the card holder styling */}
+        <div className="dashboard-card">
             <h2>Update User Information</h2>
             <form onSubmit={handleSubmit}>
                 <div className="field-input-container">
                     <input
                         type="text"
-                        placeholder="Name"
+                        placeholder="Nom"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="field-input"
@@ -47,7 +47,7 @@ const UpdateUserInfo: React.FC = () => {
                 <div className="field-input-container">
                     <input
                         type="text"
-                        placeholder="Surname"
+                        placeholder="Prenom"
                         value={surname}
                         onChange={(e) => setSurname(e.target.value)}
                         className="field-input"
@@ -55,7 +55,7 @@ const UpdateUserInfo: React.FC = () => {
                 </div>
                 <div className="field-input-container">
                     <input
-                        type="date"
+                        type="Date"
                         value={dob}
                         onChange={(e) => setDob(e.target.value)}
                         className="field-input"
@@ -73,13 +73,13 @@ const UpdateUserInfo: React.FC = () => {
                 <div className="field-input-container">
                     <input
                         type="text"
-                        placeholder="Phone"
+                        placeholder="Téléphone"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         className="field-input"
                     />
                 </div>
-                <button type="submit" className="update-field-button">Update Information</button>
+                <button type="submit" className="update-field-button">Modifier Vos Information</button>
             </form>
         </div>
         </div>
