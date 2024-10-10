@@ -6,7 +6,7 @@ import { getAccountLinkStatus } from "@/src/lib/auth/AccountLinkStatusServerActi
 //import { getUserName } from "@/src/lib/auth/getUserNameServer";
 import { handleGoogleSignIn } from "@/src/lib/auth/googleSignInServerAction";
 import { unlinkGoogleAccount } from "@/src/lib/auth/unlinkGoogleAccountServerAction";
-import { useSession } from "next-auth/react";
+//import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { getUserInfo } from "@/src/lib/auth/getUserInfoServerAction"; 
 
