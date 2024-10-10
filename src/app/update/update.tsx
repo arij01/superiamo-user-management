@@ -80,7 +80,9 @@ const UpdateUserInfo: React.FC = () => {
                     />
                 </div>
                 <button type="submit" className="update-field-button">Modifier Vos Information</button>
+                
             </form>
+            <a href="/dashboard">Dashboard</a> 
         </div>
         </div>
     );

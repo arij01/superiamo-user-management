@@ -3,7 +3,7 @@
 import { auth } from "@/src/lib/auth/authConfig";
 import { pool } from "@/src/lib/postgres";
 import { getGeolocationFromAddress } from "@/src/lib/geolocation/getGeolocationFromAddress";
-// Utility function to calculate the distance between two coordinates using the Haversine formula
+// calculate the distance between two coordinates using the Haversine formula
 function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371; // Radius of the Earth in kilometers
   const dLat = toRadians(lat2 - lat1);
@@ -64,7 +64,7 @@ export const updateUserInfo = async (userInfo: {
   }
 
   // phone number validation for France
-  const phoneRegExp: RegExp = /^(?:0[1-9]|\\+33[1-9])[0-9]{8}$/; 
+  const phoneRegExp: RegExp = /^(?:0[1-9]|(\+33)[1-9])[0-9]{8}$/; 
   if (!phoneRegExp.test(sanitizedData.phone)) {
     throw new Error("Invalid phone number format");
   }
